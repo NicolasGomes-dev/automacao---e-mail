@@ -9,8 +9,8 @@ import time
 # Configurações
 IMAP_SERVER ='imap.gmail.com'
 SMTP_SERVER = 'smtp.gmail.com'
-EMAIL_ACCOUNT = 'seu_email@gmail.com'
-EMAIL_PASSWORD = 'sua_senha_de_app'
+EMAIL_ACCOUNT = 'gomes160107@gmail.com'
+EMAIL_PASSWORD = 'vrbm ikby xurr yrvm'
 IMAP_PORT = 993 # Porta padrão para conexões IMAP seguras (SSL/TLS)
 SMTP_PORT = 587 #  Porta padrão para conexôes SMPT via STARTTLS (criptação)
 
@@ -59,7 +59,7 @@ def verifica_emails():
                 continue
             
             msg = email.message_from_bytes(data[0][1])
-            assunto, encoding = decode_header(msg.get("from"))[1]
+            assunto, encoding = decode_header(msg.get("Subject"))[0]
             if isinstance(assunto, bytes):
                 assunto = assunto.decode(encoding if encoding else "utf-8")
             remetente = email.utils.parseaddr(msg.get("From"))[1]
@@ -77,5 +77,10 @@ def verifica_emails():
             responder_email(remetente, assunto, resposta)
 
             # Marca como lido
-            mail.store(num, + 'FLAGS', '\\Seen')
+            mail.store(num,  '+FLAGS', '\\Seen')
+
+if __name__ == "__main__":
+    while True:
+        verifica_emails()
+        time.sleep(60)
         
