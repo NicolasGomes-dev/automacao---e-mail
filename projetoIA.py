@@ -10,7 +10,7 @@ import time
 IMAP_SERVER ='imap.gmail.com'
 SMTP_SERVER = 'smtp.gmail.com'
 EMAIL_ACCOUNT = 'seu_gmail.com'
-EMAIL_PASSWORD = 'senha_do_gmail'
+EMAIL_PASSWORD = 'password_gmail'
 IMAP_PORT = 993 # Porta padrão para conexões IMAP seguras (SSL/TLS)
 SMTP_PORT = 587 #  Porta padrão para conexôes SMPT via STARTTLS (criptação)
 
